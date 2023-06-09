@@ -3,13 +3,16 @@ using Microsoft.AspNetCore.Identity;
 using ShopShoes.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("ShopShoesContextConnection") ?? throw new InvalidOperationException("Connection string 'ShopShoesContextConnection' not found.");
+
+builder.Services.AddDbContext<ShopShoesContext>(options =>
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddDefaultIdentity<ShopShoesUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ShopShoesContext>();
 
 // Add services to the container.
 
-var connectionString = builder.Configuration.GetConnectionString("ShopShoesContextConnection"); builder.Services.AddDbContext<ShopShoesContext>(options =>
-    options.UseSqlServer(connectionString));
-builder.Services.AddDefaultIdentity<ShopShoesUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ShopShoesContext>();
 
 builder.Services.AddControllersWithViews();
 
