@@ -25,13 +25,13 @@
         <div class="form login">
             <div class="form-content">
                 <header>Login</header>
-                <form action="#">
+                <form id="account" method="post">
                     <div class="field input-field">
-                        <input type="email" placeholder="Email" class="input">
+                        <input asp-for="Input.Email" type="email" placeholder="Email" class="input">
                     </div>
 
                     <div class="field input-field">
-                        <input type="password" placeholder="Password" class="password">
+                        <input asp-for="Input.Password" type="password" placeholder="Password" class="password">
                         <i class='bx bx-hide eye-icon'></i>
                     </div>
 
@@ -40,12 +40,12 @@
                     </div>
 
                     <div class="field button-field">
-                        <button>Login</button>
+                        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
                     </div>
                 </form>
 
                 <div class="form-link">
-                    <span>Don't have an account? <a href="#" class="link signup-link">Signup</a></span>
+                    <span>Don't have an account? <a asp-area="Identity" asp-page="/Account/Register" class="link signup-link">Signup</a></span>
                 </div>
             </div>
 
@@ -66,33 +66,32 @@
             </div>
 
         </div>
-
         <!-- Signup Form -->
 
         <div class="form signup">
             <div class="form-content">
                 <header>Signup</header>
-                <form action="#">
+                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
                     <div class="field input-field">
-                        <input type="email" placeholder="Email" class="input">
+                        <input asp-for="Input.Email" type="email" placeholder="Email" class="input">
                     </div>
 
                     <div class="field input-field">
-                        <input type="password" placeholder="Create password" class="password">
+                        <input asp-for="Input.Password" type="password" placeholder="Create password" class="password">
                     </div>
 
                     <div class="field input-field">
-                        <input type="password" placeholder="Confirm password" class="password">
+                        <input asp-for="Input.ConfirmPassword" type="password" placeholder="Confirm password" class="password">
                         <i class='bx bx-hide eye-icon'></i>
                     </div>
 
                     <div class="field button-field">
-                        <button>Signup</button>
+                        <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary"> Signup</button>
                     </div>
                 </form>
-
                 <div class="form-link">
-                    <span>Already have an account? <a href="#" class="link login-link">Login</a></span>
+                    <span>Already have an account? <a asp-area="Identity" asp-page="/Account/Login">Login</a></span>
                 </div>
             </div>
 
@@ -117,8 +116,10 @@
 
     <!-- JavaScript -->
     <script src="~/js/JavaScriptLoginAndRegister.js" asp-append-version="true"></script>
+
 </body>
-</html>@*<div class="row">
+</html>
+@*<div class="row">
     <div class="col-md-4">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h2>Create a new account.</h2>
@@ -141,8 +142,8 @@
             </div>
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
-    </div>*@
-@* <div class="col-md-6 col-md-offset-2">
+    </div>
+ <div class="col-md-6 col-md-offset-2">
         <section>
             <h3>Use another service to register.</h3>
             <hr />
@@ -171,8 +172,8 @@
                 }
             }
         </section>
-    </div>*@
-@*</div>
+    </div>
+</div>
     @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     }

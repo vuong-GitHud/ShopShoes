@@ -2,28 +2,11 @@
     ViewData["Title"] = "Home Page";
 }
 
+
 <!DOCTYPE html>
-<!-- Coding by CodingLab | www.codinglabweb.com-->
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sidebar Menu | Side Navigation Bar</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="~/css/StyleSheet.css" />
-
-    <!-- Boxicons CSS -->
-    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
-</head>
-
 <body>
     <header>
-
         <nav class="menubar">
             <div class="logo">
                 <i class="bx bx-menu menu-icon"></i>
@@ -35,27 +18,34 @@
                         <li><a href="#">shop</a></li>
                         <li><a href="#">contact</a></li>
                         <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                        <li><a asp-area="Identity" asp-page="/Account/Login">login</a></li>
-                        <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
-
-                        @*<button class="button" id="form-open">Login</button>*@
-                        <!-- <li class="nav-item"> -->
-                        <form>
-                            <input type="text" placeholder="Search...">
-                            <button type="submit">Search</button>
-                        </form>
-                        <!-- </li> -->
                     </ul>
+                   
                 </div>
+               @* <form class="class=" nav-item"">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                        <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>*@
+                <ul class="nav-item">
+                    <partial name="_LoginPartial" />
+
+                    @*<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Login">login</a></li>
+                            <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">Logout</a></li>
+                        </ul>
+                    </li>*@
+                </ul>
             </div>
-
-
             <div class="sidebar">
                 <div class="logo">
                     <i class="bx bx-menu menu-icon"></i>
-                    <span class="logo-name">CodingLab</span>
+                    <span class="logo-name">Shop</span>
                 </div>
-
                 <div class="sidebar-content">
                     <ul class="lists">
                         <li class="list">
@@ -101,7 +91,6 @@
                             </a>
                         </li>
                     </ul>
-
                     <div class="bottom-cotent">
                         <li class="list">
                             <a href="#" class="nav-link">
@@ -119,6 +108,7 @@
                 </div>
             </div>
         </nav>
+        <section class="overlay"></section>
     </header>
 
     <main>
@@ -134,19 +124,18 @@
                     </p>
                     <a href="#" class="btn">buy now</a>
                 </div>
-
                 <div class="div-img">
-                    <img id="big-img" src="jacket1.png" alt="">
+                    <img id="big-img" src="~/images/jacket1.png" alt="">
                 </div>
-
                 <div class="small-img">
-                    <img onclick="myTshirt(this.src)" src="jacket1.png" alt="">
-                    <img onclick="myTshirt(this.src)" src="jacket2.png" alt="">
-                    <img onclick="myTshirt(this.src)" src="jacket3.png" alt="">
+                    <img onclick="myTshirt(this.src)" src="~/images/jacket1.png" alt="">
+                    <img onclick="myTshirt(this.src)" src="~/images/jacket2.png" alt="">
+                    <img onclick="myTshirt(this.src)" src="~/images/jacket3.png" alt="">
                 </div>
             </div>
         </div>
     </main>
+
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -191,10 +180,6 @@
         </div>
     </footer>
 
-    <section class="overlay"></section>
-
-    <script src="js/JavaScriptLayout.js"></script>
 
 </body>
-
 </html>

@@ -8,13 +8,13 @@ var connectionString = builder.Configuration.GetConnectionString("ShopShoesConte
 builder.Services.AddDbContext<ShopShoesContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<ShopShoesUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<ShopShoesUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ShopShoesContext>();
 
 // Add services to the container.
 
-
 builder.Services.AddControllersWithViews();
+//builder.Services.AddDbContext<ShopShoesContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ShopShoesContextConnection")));
 
 var app = builder.Build();
 
