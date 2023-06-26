@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="~/css/StyleSheet.css" />
 
     <!-- Boxicons CSS -->
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
@@ -18,22 +17,10 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
-    <header>
-        @RenderBody()
-    </header>
-    <main>
-        @RenderBody()
-    </main>
+    @RenderBody()
 
-    <footer class="footer">
-        @RenderBody()
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/JavaScriptLayout.js"></script>
-    <script src="~/js/PictureContentJavaScript.js"></script>
+    <script src="~/js/script.js"></script>
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

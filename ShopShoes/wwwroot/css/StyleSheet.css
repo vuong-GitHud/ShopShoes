@@ -1,4 +1,7 @@
-﻿/* menubar */
+﻿/* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+/* nabar */
 * {
     margin: 0;
     padding: 0;
@@ -47,11 +50,11 @@ nav .sidebar {
     top: 0;
     left: -100%;
     height: 100%;
-    width: 260px;
+    width: 300px;
     padding: 20px 0;
     background-color: #fff;
     box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
+    transition: all 0.1s ease;
 }
 
 nav.open .sidebar {
@@ -108,66 +111,70 @@ nav.open .sidebar {
     width: 200%;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.4s ease;
+    transition: all 0.1s ease;
     background: rgba(0, 0, 0, 0.3);
-}   
+}
 
 nav.open ~ .overlay {
     opacity: 1;
-    left: 260px;
+    left: 300px;
     pointer-events: auto;
 }
 
 /* main body content */
-.contanier ul li {
-/*    top:15px;
-*/    display: inline-block;
-    margin-left: 100px;
-    height: 80px;
-    position: relative;
-    line-height: 80px;
-    cursor: pointer;
+.contanier {
+    width: 100%;
+    height: 100%;
 }
 
-    .contanier ul li::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        background: #79bccf;
-        width: 0%;
-        height: 3px;
-        transition: 0.3s;
+    .contanier ul li {
+        display: inline-block;
+        margin-left: 80px;
+        height: 10px;
+        position: relative;
+        line-height: 10px;
+        cursor: pointer;
     }
 
-    .contanier ul li:hover::after,
-    .contanier ul li.active::after {
-        max-width: 100%;
-    }
-
-    .contanier ul li a {
-        color: #444;
-        font-weight: bold;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-size: 15px;
-        transition: 0.3s;
-    }
-
-        .contanier ul li a:hover,
-        nav ul li.active a {
-            color: #79bccf;
+        .contanier ul li::after {
+            content: '';
+            position: absolute;
+            bottom: 100px;
+            left: 100px;
+            background: #79bccf;
+            width: 0%;
+            height: 3px;
+            transition: 0.3s;
         }
 
-.contanier .content {
-    max-width: 100%;
-    height: calc(100vh - 95px);
-    background: linear-gradient(130deg, #c4e1f8, #eeb0bd);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5%;
-}
+        .contanier ul li:hover::after,
+        .contanier ul li.active::after {
+            max-width: 100%;
+        }
+
+        .contanier ul li a {
+            color: #444;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+            .contanier ul li a:hover,
+            nav ul li.active a {
+                color: #79bccf;
+            }
+
+    .contanier .content {
+        max-width: 100%;
+        height: calc(100vh - 95px);
+        background: linear-gradient(130deg, #c4e1f8, #eeb0bd);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 5%;
+    }
 
 .content .div-text span {
     color: #fff;
@@ -242,24 +249,26 @@ nav.open ~ .overlay {
             transform: scale(1.2);
         }
 
+/* footer */
+
 .row {
     display: flex;
     flex-wrap: wrap;
 }
 
 ul {
+    flex-wrap: nowrap;
     list-style: none;
 }
 
 .footer {
     background-color: #24262b;
     padding: 70px 0;
-   
 }
 
 .footer-col {
     width: 25%;
-    padding: 0 15px;
+    padding: 0 100px;
 }
 
     .footer-col h4 {
@@ -335,3 +344,4 @@ ul {
 }
 
 
+}

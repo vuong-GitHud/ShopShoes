@@ -4,25 +4,43 @@
 @inject SignInManager<ShopShoesUser> SignInManager
 @inject UserManager<ShopShoesUser> UserManager
 
-<ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-    </li>
-    <li class="nav-item">
-        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
-            <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-}
+<style>
+    .login-button {
+        padding: 10px 20px;
+        margin-left: 200px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        .login-button:hover {
+            background-color: #45a049;
+        }
+
+</style>
+<ul>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li>
+            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Active - @UserManager.GetUserName(User)!</a>
+        </li>
+        <li>
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                <button id="logout" type="submit" class="login-button">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li>
+            <button class="login-button"> <a id="register" asp-area="Identity" asp-page="/Account/Register">Register</a></button>
+            <button class="login-button"> <a id="login" asp-area="Identity" asp-page="/Account/Login">Login</a></button>
+
+        </li>
+
+
+
+    }
 </ul>
