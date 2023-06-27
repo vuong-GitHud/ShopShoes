@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using ShopShoes.Areas.Identity.Data;
+using ShopShoes.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ShopShoesContextConnection") ?? throw new InvalidOperationException("Connection string 'ShopShoesContextConnection' not found.");

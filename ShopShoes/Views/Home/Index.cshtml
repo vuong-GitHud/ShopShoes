@@ -41,7 +41,7 @@
                         <li class="list">
                             <a class="nav-link" asp-controller="Home" asp-action="Index"></a>
                             <i class="bx bx-home-alt icon"></i>
-                            <span class="link" asp-controller="Home" asp-action="Index">Dashboard</span>
+                            <span class="link">Dashboard</span>
                             </a>
                         </li>
                         <li class="list">
@@ -89,7 +89,7 @@
                             </a>
                         </li>
                         <li class="list">
-                            <a href="#" class="nav-link">
+                            <a asp-area="Identity" asp-page="/Account/Logout" class="nav-link">
                                 <i class="bx bx-log-out icon"></i>
                                 <span class="link">Logout</span>
                             </a>

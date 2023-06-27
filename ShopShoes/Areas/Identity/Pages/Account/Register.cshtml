@@ -14,120 +14,46 @@
     <title> Responsive Login and Signup Form </title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="~/css/Register.css">
+    <link rel="stylesheet" href="~/css/RegiterScript.css">
 
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 <body>
-    <section class="container forms">
-        <div class="form login">
-            <div class="form-content">
-                <header>Login</header>
-                <form id="account" method="post">
-                    <div class="field input-field">
-                        <input asp-for="Input.Email" type="email" placeholder="Email" class="input">
-@*                        <span asp-validation-for="Input.Email" class="text-danger"></span>
-*@
-                    </div>
+    <!-- Signup Form -->
+    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
 
-                    <div class="field input-field">
-                        <input asp-for="Input.Password" type="password" placeholder="Password" class="password">
-                        <i class='bx bx-hide eye-icon'></i>
-@*                        <span asp-validation-for="Input.Password" class="text-danger"></span>
-*@
-                    </div>
+        <div class="form">
+            <div class="title">Welcome</div>
+            <div class="subtitle">Let's create your account!</div>
+            <div class="input-container ic1">
+                <input asp-for="Input.Email" id="Email" class="input" type="text" placeholder=" " />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
 
-                    <div class="form-link">
-                        <a href="#" class="forgot-pass">Forgot password?</a>
-                    </div>
-
-                    <div class="field button-field">
-                        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
-                    </div>
-                </form>
-
-                <div class="form-link">
-                    <span>Don't have an account? <a asp-area="Identity" asp-page="/Account/Register" class="link signup-link">Signup</a></span>
-                </div>
+                <div class="cut"></div>
+                <label for="firstname" class="placeholder">First name</label>
             </div>
+            <div class="input-container ic2">
+                <input asp-for="Input.Password" id="Password" class="input" type="text" placeholder=" " />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
 
-            <div class="line"></div>
-
-            <div class="media-options">
-                <a href="#" class="field facebook">
-                    <i class='bx bxl-facebook facebook-icon'></i>
-                    <span>Login with Facebook</span>
-                </a>
+                <div class="cut"></div>
+                <label for="Password" class="placeholder">Password</label>
             </div>
+            <div class="input-container ic2">
+                <input asp-for="Input.ConfirmPassword" id="ConfirmPassword" class="input" type="text" placeholder=" " />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
 
-            <div class="media-options">
-                <a href="#" class="field google">
-                    <img src="~/images/google.png" alt="" class="google-img">
-                    <span>Login with Google</span>
-                </a>
+                <div class="cut cut-short"></div>
+                <label for="ConfirmPassword" class="placeholder">ConfirmPassword<label/>
             </div>
-
+            <div class="form-link">
+                <span>Already have an account? <a asp-area="Identity" asp-page="/Account/Login">Login</a></span>
+            </div>
+            <button id="registerSubmit" type="text" class="submit">Register</button>
         </div>
-        <!-- Signup Form -->
-
-        <div class="form signup">
-            <div class="form-content">
-                <header>Signup</header>
-                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-
-                    <div class="field input-field">
-                        <input asp-for="Input.Email" type="email" placeholder="Email" class="input">
-                        <span asp-validation-for="Input.Email" class="text-danger"></span>
-                       
-
-
-                    </div>
-
-                    <div class="field input-field">
-                        <input asp-for="Input.Password" type="password" placeholder="Create password" class="password">
-                        <span asp-validation-for="Input.Password" class="text-danger"></span>
-
-                    </div>
-
-                    <div class="field input-field">
-                        <input asp-for="Input.ConfirmPassword" type="password" placeholder="Confirm password" class="password">
-                        <i class='bx bx-hide eye-icon'></i>
-                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-
-                    </div>
-
-                    <div class="field button-field">
-                        <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary"> Signup</button>
-                    </div>
-                </form>
-                <div class="form-link">
-                    <span>Already have an account? <a asp-area="Identity" asp-page="/Account/Login">Login</a></span>
-                </div>
-            </div>
-
-            <div class="line"></div>
-
-            <div class="media-options">
-                <a href="#" class="field facebook">
-                    <i class='bx bxl-facebook facebook-icon'></i>
-                    <span>Login with Facebook</span>
-                </a>
-            </div>
-
-            <div class="media-options">
-                <a href="#" class="field google">
-                    <img src="~/images/google.png" alt="" class="google-img">
-                    <span>Login with Google</span>
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- JavaScript -->
-    <script src="~/js/JavaScriptLoginAndRegister.js" asp-append-version="true"></script>
+    </form>
 
 </body>
 </html>
