@@ -18,7 +18,8 @@
                 <div class="contanier">
                     <ul>
                         <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a href="#">Product</a></li>
+                        <li><a asp-controller="Product" asp-action="Add">AddProduct</a></li>
+                        <li><a asp-controller="Product" asp-action="Index">Product</a></li>
                         <li><a href="#">Category</a></li>
                         <li><a href="#">contact</a></li>
                         <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
@@ -39,9 +40,9 @@
                 <div class="sidebar-content">
                     <ul class="lists">
                         <li class="list">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index"></a>
-                            <i class="bx bx-home-alt icon"></i>
-                            <span class="link">Dashboard</span>
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">
+                                <i class="bx bx-home-alt icon"></i>
+                                <span class="link">Dashboard</span>
                             </a>
                         </li>
                         <li class="list">
@@ -89,7 +90,7 @@
                             </a>
                         </li>
                         <li class="list">
-                            <a asp-area="Identity" asp-page="/Account/Logout" class="nav-link">
+                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">
                                 <i class="bx bx-log-out icon"></i>
                                 <span class="link">Logout</span>
                             </a>
@@ -105,22 +106,26 @@
         <div class="contanier">
             <div class="content">
                 <div class="div-text">
-                    <span>outfit of the day</span>
-                    <h3>all your</h3>
-                    <h1>styles are here</h1>
+                    <span>Outfit of the day</span>
+                    <h3>All your</h3>
+                    <h1>Styles are here</h1>
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br>
-                        Doloremque unde sunt eum illum ab tempora illo iure sequi <br> minus culpa.
+                        Welcome to our store! We're thrilled to have you here <br>
+                        Step inside and discover a world of endless possibilities <br>
+                        Our shelves are filled with the latest trends, high-quality products, and exceptional deals <br>
+                        Our friendly staff is here to assist you and make your shopping experience truly memorable. <br>
+                        Enjoy your time exploring our store!
                     </p>
-                    <a href="#" class="btn">buy now</a>
+                    <a asp-controller="Product" asp-action="Index" class="btn">buy now</a>
                 </div>
                 <div class="div-img">
-                    <img id="big-img" src="~/images/jacket1.png" alt="">
+                    <img id="big-img" src="https://i.ibb.co/Yd2Z16g/International-Women-s-Day-Facebook-Post.png" alt="">
                 </div>
                 <div class="small-img">
                     <img onclick="myTshirt(this.src)" src="~/images/jacket1.png" alt="">
                     <img onclick="myTshirt(this.src)" src="~/images/jacket2.png" alt="">
                     <img onclick="myTshirt(this.src)" src="~/images/jacket3.png" alt="">
+                    <img onclick="myTshirt(this.src)" src="https://i.ibb.co/Yd2Z16g/International-Women-s-Day-Facebook-Post.png" alt="">
                 </div>
             </div>
         </div>

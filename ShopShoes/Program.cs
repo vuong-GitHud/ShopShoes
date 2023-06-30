@@ -1,13 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using ShopShoes.Areas.Identity.Data;
 using ShopShoes.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("ShopShoesContextConnection") ?? throw new InvalidOperationException("Connection string 'ShopShoesContextConnection' not found.");
+//var connectionString = builder.Configuration.GetConnectionString("ShopShoesContextConnection") ?? throw new InvalidOperationException("Connection string 'ShopShoesContextConnection' not found.");
 
 builder.Services.AddDbContext<ShopShoesContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ShopShoesContextConnection")));
 
 builder.Services.AddDefaultIdentity<ShopShoesUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ShopShoesContext>();

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shopshose.Data.Entity
+namespace ShopShoes.Models.EF
 {
     public class Cart
     {

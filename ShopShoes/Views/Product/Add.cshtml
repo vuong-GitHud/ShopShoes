@@ -1,0 +1,69 @@
+﻿@using ShopShoes
+@model ShopShoes.Models.AddProductViewModel
+
+<form method="post" action="Add">
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Price</label>
+        <input type="number" class="form-control" asp-for="Price">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Amount</label>
+        <input type="number" class="form-control" asp-for="Amount">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">DateCreate</label>
+        <input type="date" class="form-control" asp-for="DateCreate">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Status</label>
+        <input type="status" class="form-control" asp-for="Status">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+@*<html>
+<head>
+    <link rel="stylesheet" href="~/css/Product.css" />
+
+</head> 
+<body>
+   
+    <div class="product-container">
+        <div class="image">
+            <img src="https://i.ibb.co/Yd2Z16g/International-Women-s-Day-Facebook-Post.png" alt="International-Women-s-Day-Facebook-Post" border="0" />
+        </div>
+        <div class="details">
+            <h1 class="cost">$200</h1>
+            <h3 class="title">Adidas Ultraboost 22</h3>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="mastercard">
+            <div class="logo"></div>
+            <div class="name">mastercard</div>
+        </div>
+        <div class="card-details">
+            <div class="card-number field">
+                <label for="cn">CARD NUMBER</label>
+                <input id="cn" type="text" />
+            </div>
+            <div class="card-name field">
+                <label for="cna">NAME ON CARD</label>
+                <input id="cna" type="text" />
+            </div>
+            <div class="expires field">
+                <label for="exp">EXPIRES</label>
+                <input id="exp" type="text" />
+            </div>
+            <div class="cvc field">
+                <label for="cvc">CVC</label>
+                <input id="cvc" type="text" />
+            </div>
+        </div>
+        <button class="purchase-button" data-content="PURCHASE">PURCHASE</button>
+    </div>
+</body>
+</html>*@

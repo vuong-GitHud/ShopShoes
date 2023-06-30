@@ -1,4 +1,4 @@
-﻿namespace ShopShoes.Entity
+﻿namespace ShopShoes.Models.EF
 {
     public class Oder
     {

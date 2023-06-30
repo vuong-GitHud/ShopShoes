@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ShopShoes.Areas.Identity.Data;
-using ShopShoes.Entity;
-using Shopshose.Data.Entity;
+using ShopShoes.Models.EF;
 
 namespace ShopShoes.Data;
 
@@ -22,7 +20,7 @@ public class ShopShoesContext : IdentityDbContext<ShopShoesUser>
 
     }
     public DbSet<Product> Products { get; set; }
-    public DbSet<Category> Categories { get; set; }
+    public DbSet<Category> Categoris { get; set; }
     public DbSet<Cart> Carts { get; set; }
     public DbSet<Oder> Oders { get; set; }
 

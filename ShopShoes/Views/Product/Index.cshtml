@@ -1,0 +1,29 @@
+﻿@model List<ShopShoes.Models.EF.Product>
+@{
+}
+<h1>Product</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Amuont</th>
+            <th>DateCreate</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Amount</td>
+                <td>@product.DateCreate.ToString("dd-MM-yyyy")</td>
+                <td>@product.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
