@@ -9,6 +9,8 @@
 }
 
 .container {
+    display: flex;
+    padding-top: 10vh;
     height: 100vh;
     max-width: 100%;
     display: flex;
@@ -19,7 +21,7 @@
 }
 
 .form {
-    position: absolute;
+    position: center;
     max-width: 430px;
     width: 100%;
     padding: 30px;

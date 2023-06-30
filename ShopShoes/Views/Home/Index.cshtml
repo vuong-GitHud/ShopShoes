@@ -10,98 +10,8 @@
 
 </head>
 <body>
-    <header>
-        <nav class="menubar">
-            <div class="logo">
-                <i class="bx bx-menu menu-icon"></i>
-                <span class="logo-name">Shop</span>
-                <div class="contanier">
-                    <ul>
-                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-controller="Product" asp-action="Add">AddProduct</a></li>
-                        <li><a asp-controller="Product" asp-action="Index">Product</a></li>
-                        <li><a href="#">Category</a></li>
-                        <li><a href="#">contact</a></li>
-                        <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
 
-                    </ul>
-
-                </div>
-                <ul>
-                    <partial name="_LoginPartial" />
-
-                </ul>
-            </div>
-            <div class="sidebar">
-                <div class="logo">
-                    <i class="bx bx-menu menu-icon"></i>
-                    <span class="logo-name">Shop</span>
-                </div>
-                <div class="sidebar-content">
-                    <ul class="lists">
-                        <li class="list">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">
-                                <i class="bx bx-home-alt icon"></i>
-                                <span class="link">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="list">
-                            <a href="#" class="nav-link">
-                                <i class="bx bx-bar-chart-alt-2 icon"></i>
-                                <span class="link">Revenue</span>
-                            </a>
-                        </li>
-                        <li class="list">
-                            <a href="#" class="nav-link">
-                                <i class="bx bx-bell icon"></i>
-                                <span class="link">Notifications</span>
-                            </a>
-                        </li>
-                        <li class="list">
-                            <a href="#" class="nav-link">
-                                <i class="bx bx-message-rounded icon"></i>
-                                <span class="link">Messages</span>
-                            </a>
-                        </li>
-                        <li class="list">
-                            <a href="#" class="nav-link">
-                                <i class="bx bx-pie-chart-alt-2 icon"></i>
-                                <span class="link">Analytics</span>
-                            </a>
-                        </li>
-                        <li class="list">
-                            <a href="#" class="nav-link">
-                                <i class="bx bx-heart icon"></i>
-                                <span class="link">Likes</span>
-                            </a>
-                        </li>
-                        <li class="list">
-                            <a href="#" class="nav-link">
-                                <i class="bx bx-folder-open icon"></i>
-                                <span class="link">Files</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="bottom-cotent">
-                        <li class="list">
-                            <a href="#" class="nav-link">
-                                <i class="bx bx-cog icon"></i>
-                                <span class="link">Settings</span>
-                            </a>
-                        </li>
-                        <li class="list">
-                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">
-                                <i class="bx bx-log-out icon"></i>
-                                <span class="link">Logout</span>
-                            </a>
-                        </li>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <section class="overlay"></section>
-    </header>
-
+   
     <main>
         <div class="contanier">
             <div class="content">
@@ -130,7 +40,40 @@
             </div>
         </div>
     </main>
-
+    <div class="wrapper">
+        <ul class="carousel">
+            <li class="card">
+                <div class="img"><img src="images/jacket1.png" alt="img" draggable="false"></div>
+                <h2>Blanche Pearson</h2>
+                <span>Sales Manager</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="images/jacket2.png" alt="img" draggable="false"></div>
+                <h2>Joenas Brauers</h2>
+                <span>Web Developer</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="images/jacket3.png" alt="img" draggable="false"></div>
+                <h2>Lariach French</h2>
+                <span>Online Teacher</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="images/jacket1.png" alt="img" draggable="false"></div>
+                <h2>James Khosravi</h2>
+                <span>Freelancer</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="images/Jacket2.png" alt="img" draggable="false"></div>
+                <h2>Kristina Zasiadko</h2>
+                <span>Bank Manager</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="images/jacket3.png" alt="img" draggable="false"></div>
+                <h2>Donald Horton</h2>
+                <span>App Designer</span>
+            </li>
+        </ul>
+    </div>
     <footer class="footer">
         <div class="container">
             <div class="row">
