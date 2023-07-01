@@ -5,43 +5,56 @@
 @inject SignInManager<ShopShoesUser> SignInManager
 @inject UserManager<ShopShoesUser> UserManager
 
-<style>
-    .login-button {
-        padding: 10px 20px;
-        margin-left: 200px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
 
-        .login-button:hover {
-            background-color: #45a049;
+
+<html>
+<head>
+    <style>
+       
+        li{
+            display: flex;
+        }
+        .login-button {
+            padding: 10px 20px;
+            margin-left:80px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width:auto;
+            margin-top: 5px;
         }
 
-</style>
-<ul>
-    @if (SignInManager.IsSignedIn(User))
-    {
-        <li>
-            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Active - @UserManager.GetUserName(User)!</a>
-        </li>
-        <li>
-            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
-                <button id="logout" type="submit" class="login-button">Logout</button>
-            </form>
-        </li>
-    }
-    else
-    {
-        <li>
-            <button class="login-button"> <a id="register" asp-area="Identity" asp-page="/Account/Register">Register</a></button>
-            <button class="login-button"> <a id="login" asp-area="Identity" asp-page="/Account/Login">Login</a></button>
+            .login-button:hover {
+                background-color: #45a049;
+            }
 
-        </li>
+    </style>
 
+</head>
+<body>
+    <ul>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li>
+                <a id="manage" class="login-button" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserName(User)!</a>
+            
+                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                    <button id="logout" type="submit" class="login-button">Logout</button>
+                </form>
+            </li>
+        }
+        else
+        {
+            <li>
+                <button class="login-button"> <a  asp-area="Identity" asp-page="/Account/Register">Register</a></button>
+                <button class="login-button"> <a id="login" asp-area="Identity" asp-page="/Account/Login">Login</a></button>
+                
+            </li>
 
-
-    }
-</ul>
+           
+        }
+    </ul>
+</body>
+</html>
