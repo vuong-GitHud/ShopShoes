@@ -4,6 +4,7 @@ using ShopShoes.Models;
 using ShopShoes.Models.EF;
 using System.Data.Entity;
 using Microsoft.EntityFrameworkCore;
+using ShopShoes.Areas.Identity.Data;
 
 namespace ShopShoes.Controllers
 {

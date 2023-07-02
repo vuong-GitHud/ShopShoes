@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ShopShoes.Data;
+using ShopShoes.Areas.Identity.Data;
 
 #nullable disable
 
 namespace ShopShoes.Migrations
 {
     [DbContext(typeof(ShopShoesContext))]
-    [Migration("20230629101349_addDb")]
-    partial class addDb
+    [Migration("20230702203227_AddDb")]
+    partial class AddDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -299,8 +299,9 @@ namespace ShopShoes.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Price")
-                        .HasColumnType("bigint");
+                    b.Property<string>("Price")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .IsRequired()

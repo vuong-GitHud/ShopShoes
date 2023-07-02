@@ -47,59 +47,74 @@
                     <ul class="lists">
                         <li class="list">
                             <a class="nav-link" asp-controller="Home" asp-action="Index">
-                                <iconify-icon icon="ic:outline-home" width="20" height="20"></iconify-icon>
+                                <i class="icon"><iconify-icon icon="ic:outline-home" width="20" height="20"></iconify-icon></i>
                                 <span class="link">Home Page</span>
                             </a>
                         </li>
                         <li class="list">
                             <a href="#" class="nav-link">
-                                <iconify-icon icon="carbon:product" width="20" height="20"></iconify-icon>
+                                <i class="icon">
+                                    <iconify-icon icon="carbon:product" width="20" height="20"></iconify-icon>
+                                </i>
                                 <span class="link">Product</span>
                             </a>
                         </li>
                         <li class="list">
                             <a href="#" class="nav-link">
                                 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-                                <iconify-icon icon="ic:baseline-post-add" width="20" height="32"></iconify-icon>
-                                <i></i>
+                                <i class="icon">
+                                    <iconify-icon icon="ic:baseline-post-add" width="20" height="32"></iconify-icon>
+                                </i>
                                 <span class="link">Add Product</span>
                             </a>
                         </li>
                         <li class="list">
                             <a href="#" class="nav-link">
-                                <iconify-icon icon="carbon:category" width="20" height="20"></iconify-icon>
+                                <i class="icon">
+                                    <iconify-icon icon="carbon:category" width="20" height="20"></iconify-icon>
+                                </i>
                                 <span class="link">Category</span>
                             </a>
                         </li>
                         <li class="list">
                             <a href="#" class="nav-link">
-                                <i class="fa-solid fa-cart-shopping"></i>
+                                <i class="icon">
+                                    <iconify-icon icon="raphael:cart" width="20" height="20"></iconify-icon>
+                                </i>
                                 <span class="link">Cart</span>
                             </a>
                         </li>
                         <li class="list">
                             <a href="#" class="nav-link">
-                                <iconify-icon icon="streamline:money-cash-bag-dollar-bag-payment-cash-money-finance" width="20" height="20"></iconify-icon>
+                                <i class="icon">
+                                    <iconify-icon icon="streamline:money-cash-bag-dollar-bag-payment-cash-money-finance" width="20" height="20"></iconify-icon>
+                                </i>
                                 <span class="link">Payment</span>
                             </a>
                         </li>
                         <li class="list">
-                            <a href="#" class="nav-link">
-                                <iconify-icon icon="streamline:programming-browser-key-secure-password-window-browser-key-security-login" width="20" height="20"></iconify-icon>
-                                <span class="link">Login</span>
+                            <a asp-area="Identity" asp-page="/Account/Login" class="nav-link">
+                                <i class="icon">
+                                    <iconify-icon icon="streamline:interface-login-key-entry-key-lock-login-pass-unlock" width="20" height="20"></iconify-icon>
+                                    <span class="link">Login</span>
+                                </i>
                             </a>
                         </li>
                     </ul>
                     <div class="bottom-cotent">
                         <li class="list">
                             <a href="#" class="nav-link">
-                                <iconify-icon icon="mdi:about" width="20" height="20"></iconify-icon>
+                                <i class="icon">
+                                    <iconify-icon icon="mdi:about" width="20" height="20"></iconify-icon>
+                                </i>
                                 <span class="link">About Shop</span>
                             </a>
                         </li>
                         <li class="list">
                             <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">
-                                <i class="bx bx-log-out icon"></i>
+                                <i class="icon">
+                                    <iconify-icon icon="solar:logout-3-outline" width="20" height="20" flip="horizontal"></iconify-icon>
+                                </i>
                                 <span class="link">Logout</span>
                             </a>
                         </li>
@@ -113,7 +128,7 @@
 
     <script src="~/js/script.js"></script>
 
-
+   
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

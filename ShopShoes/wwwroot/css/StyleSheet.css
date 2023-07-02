@@ -79,14 +79,14 @@ nav.open .sidebar {
     display: flex;
     align-items: center;
     margin: 8px 0;
-    padding: 14px 12px;
+    padding: 8px 8px;
     border-radius: 8px;
     text-decoration: none;
 }
 
 .lists .nav-link:hover {
     background-color: #4070f4;
-    width: auto;
+    width: 30vh;
 }
 
 .nav-link .icon {
@@ -358,7 +358,7 @@ ul {
     position: inherit;
 }
 
-    .wrapper i {
+    /*.wrapper i {
         top: 50%;
         height: 50px;
         width: 80px;
@@ -383,7 +383,7 @@ ul {
 
         .wrapper i:last-child {
             right: -22px;
-        }
+        }*/
 
     .wrapper .carousel {
         display: grid;

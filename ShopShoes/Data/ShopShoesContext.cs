@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ShopShoes.Data;
 using ShopShoes.Models.EF;
 
-namespace ShopShoes.Data;
+namespace ShopShoes.Areas.Identity.Data;
 
 public class ShopShoesContext : IdentityDbContext<ShopShoesUser>
 {
