@@ -17,34 +17,35 @@ namespace ShopShoes.Controllers
             this.shopShoesContext = shopShoesContext;
         }
 
+        // GET: Product
+
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var products = await shopShoesContext.Products.ToListAsync();
+            var products = shopShoesContext.Products.ToList();
             return View(products);
         }
+
+        // GET: Product/Create
 
         [HttpGet]
         public IActionResult Add()
         {
             return View();
-        }
-
+        }  
+        
+        // GET: Product/Create
         [HttpPost]
-        public async Task<IActionResult> Add(AddProductViewModel addProductViewModel)
+        public async Task<IActionResult> Add(Product product)
         {
-            var product = new Product()
+            if (ModelState.IsValid)
             {
-                Id = Guid.NewGuid(),
-                Name = addProductViewModel.Name,
-                Price = addProductViewModel.Price,
-                Amount = addProductViewModel.Amount,
-                DateCreate = addProductViewModel.DateCreate,
-                Status = addProductViewModel.Status
-            };
-            await shopShoesContext.Products.AddAsync(product);
-            await shopShoesContext.SaveChangesAsync();
-            return RedirectToAction("Add");
+                shopShoesContext.Products.Add(product);
+                shopShoesContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(product);
         }
     }
 }
