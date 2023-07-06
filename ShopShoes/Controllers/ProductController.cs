@@ -5,6 +5,7 @@ using ShopShoes.Models.EF;
 using System.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 using ShopShoes.Areas.Identity.Data;
+using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 
 namespace ShopShoes.Controllers
 {
@@ -45,6 +46,29 @@ namespace ShopShoes.Controllers
                 return RedirectToAction("Index");
             }
 
+            return View(product);
+        }
+
+        // GET: Product/Edit/5
+        public async Task<ActionResult> Edit(int id)
+        {
+            var product = shopShoesContext.Products.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
+        // POST: Product/Edit/5
+        [HttpPost]
+        public async Task<ActionResult> Edit(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                shopShoesContext.Entry(product).State = EntityState.Modified;
+                shopShoesContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
             return View(product);
         }
     }

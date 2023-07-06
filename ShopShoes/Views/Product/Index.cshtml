@@ -2,9 +2,9 @@
 @{
 }
 
-<link rel="stylesheet" href="~/css/StyleSheet.css">
-
-<h1>Product</h1>
+@*<link rel="stylesheet" href="~/css/StyleSheet.css">
+*@
+@*<h1>Product</h1>
 <table class="table">
     <thead>
         <tr>
@@ -26,34 +26,82 @@
                 <td>@product.Amount</td>
                 <td>@product.DateCreate.ToString("dd-MM-yyyy")</td>
                 <td>@product.Status</td>
+                <td> <a hef="Product/Detail/@product.Id">Detail</a></td>
             </tr>
         }
     </tbody>
-</table>
-@*<!DOCTYPE html>
+</table>*@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Product Details</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="~/css/StyleSheet.css">
+    <style>
+      
+        .container {
+            display:table;
+            margin: 0 auto;
+            width: 100%;
+            margin-top: 200px;
+        }
+
+        .product {
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+
+        .field {
+            margin-bottom: 10px;
+            width: 500px;
+        }
+
+        label {
+            display: inline-block;
+            width: 120px;
+            font-weight: bold;
+        }
+
+        span {
+            display: inline-block;
+            width: auto;
+        }
+
+    </style>
 </head>
 <body>
+
     <div class="container">
         <h1>Product Details</h1>
-        <div class="product">
-            <div class="field">
-                <label for="productName">Product Name:</label>
-                <span id="productName"> </span>
+        @foreach (var product in Model)
+        {
+
+            <div class="product">
+                <div class="field">
+                    <label for="id">ID:</label>
+                    <span id="productid">@product.Id</span>
+                </div>
+                <div class="field">
+                    <label for="productName">Name:</label>
+                    <span id="productName">@product.Name</span>
+                </div>
+                <div class="field">
+                    <label for="productPrice">Price:</label>
+                    <span id="productPrice">@product.Price</span>
+                </div>
+                <div class="field">
+                    <label for="productAmount">Amount:</label>
+                    <span id="productAmount">@product.Amount</span>
+                </div>
+                <div class="field">
+                    <label for="productDateCreate">DateCreate:</label>
+                    <span id="productDateCreate">@product.DateCreate.ToString("dd-MM-yyyy")</span>
+                </div>
+                <div class="field">
+                    <label for="Status">Status:</label>
+                    <span id="productStatus">@product.Status</span>
+                </div>
             </div>
-            <div class="field">
-                <label for="productPrice">Price:</label>
-                <span id="productPrice"></span>
-            </div>
-            <div class="field">
-                <label for="productDescription">Description:</label>
-                <span id="productDescription"></span>
-            </div>
-        </div>
+        }
     </div>
 </body>
 </html>
-*@

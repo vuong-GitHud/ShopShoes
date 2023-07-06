@@ -1,5 +1,5 @@
 ﻿@using ShopShoes
-@model ShopShoes.Models.AddProductViewModel
+@model ShopShoes.Models.EF.Product
 
 <!DOCTYPE html>
 <html>
@@ -34,7 +34,7 @@
                 <textarea id="status" name="status" rows="4" required></textarea>
             </div>
             <div class="form-group">
-                <button type="submit">Add Product</button>
+                <button type="submit">Add Product</button> 
                 <button type="submit" asp-controller="Home" asp-action="Index"> Cancel</button>
 
             </div>
