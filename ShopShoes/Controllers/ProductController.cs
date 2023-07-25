@@ -6,6 +6,8 @@ using System.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 using ShopShoes.Areas.Identity.Data;
+using Microsoft.Build.Framework;
+using System.Reflection.Metadata.Ecma335;
 
 namespace ShopShoes.Controllers
 {
@@ -38,91 +40,115 @@ namespace ShopShoes.Controllers
             return View();
         }
 
-        // GET: Product/Create
+        // Post: Product/Create
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-
-        public async Task<IActionResult> Add(Product product)
+        public async Task<IActionResult> Add(AddProductViewModel addProductViewModel)
         {
-            if (ModelState.IsValid)
+            var product = new Product()
             {
-                shopShoesContext.Products.Add(product);
-                shopShoesContext.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                Id = Guid.NewGuid(),
+                Name = addProductViewModel.Name,
+                Price = addProductViewModel.Price,
+                Amount = addProductViewModel.Amount,
+                DateCreate = addProductViewModel.DateCreate,
+                Status = addProductViewModel.Status
 
-            return View(product);
+            };
+            await shopShoesContext.Products.AddAsync(product);
+            await shopShoesContext.SaveChangesAsync();
+            return RedirectToAction("Index");
+            //if (ModelState.IsValid)
+            //{ 
+            //    shopShoesContext.Products.Add(product);
+            //    shopShoesContext.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+
+            //return View(product);
         }
-        //public async Task<IActionResult> Edit1(Guid id)
-        //{
-        //    var product = await shopShoesContext.Products.FirstOrDefaultAsync(x => x.Id == id);
-        //    if (product != null)
-        //    {
-        //        var viewModel = new UpdateProductViewModel();
-        //        Id = product.Id,
-        //        Name = product.Name,
-        //        Price = product.Price,
-        //        Amount = product.Amount,
-        //        DateCreate = product.DateCreate,
-        //        Status = product.Status
-
-
-        //    };
-        //}
         //GET: Product/Edit/5
+        [HttpGet]
         public async Task<IActionResult> Edit(Guid id)
         {
-            if (id == null)
+            var product = shopShoesContext.Products.FirstOrDefault(x => x.Id == id);
+            if (product != null)
             {
-                return NotFound();
-            }
-            var product = shopShoesContext.Products.FindAsync(id);
+                var viewModel = new UpdateProductViewModel()
+                {
+                    Id = product.Id,
+                    Name = product.Name,
+                    Price = product.Price,
+                    Amount = product.Amount,
+                    DateCreate = product.DateCreate,
+                    Status = product.Status
+                };
+                return await Task.Run(() => View("Edit", viewModel));
 
-            if (product == null)
-            {
-                return NotFound();
             }
-            return View(product);
+            return RedirectToAction("Index");
         }
-        // POST: Product/Edit/5
+        // Post: Product/Edit
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-
-        public async Task<IActionResult> Edit(Guid? id, /*[Bind("Id,Name,Price,Amount,DateCreate,Status")]*/ Product product)
+        public async Task<IActionResult> Edit(UpdateProductViewModel model)
         {
+            var product = await shopShoesContext.Products.FindAsync(model.Id);
+            if (product != null)
+            {
+                product.Name = model.Name;
+                product.Price = model.Price;
+                product.Amount = model.Amount;
+                product.DateCreate = model.DateCreate;
+                product.Status = model.Status;
 
-            if (id != product.Id)
-            {
-                return NotFound();
-            }
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    shopShoesContext.Update(product);
-                    await shopShoesContext.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductExists(product.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                await shopShoesContext.SaveChangesAsync();
+
                 return RedirectToAction("Index");
-
-
             }
-            return View(product);
+            return RedirectToAction("Index");
         }
+        // Post: Product/Delete
 
-        private bool ProductExists(Guid id)
+        [HttpPost]
+        public async Task<IActionResult> Delete(Guid id)
         {
-            return shopShoesContext.Products.Any(x => x.Id == id);
+            var product = await shopShoesContext.Products.FindAsync(id);
+            if (product != null)
+            {
+                shopShoesContext.Products.Remove(product);
+                await shopShoesContext.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+
         }
+        //public async Task<IActionResult> Delete(Guid? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var product = await shopShoesContext.Products
+        //        .FirstOrDefaultAsync(m => m.Id == id);
+        //    if (product == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return View(product);
+        //}
+
+        //// POST: Products/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DeleteConfirmed(Guid id)
+        //{
+        //    var product = await shopShoesContext.Products.FindAsync(id);
+        //    shopShoesContext.Products.Remove(product);
+        //    await shopShoesContext.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
     }
 }

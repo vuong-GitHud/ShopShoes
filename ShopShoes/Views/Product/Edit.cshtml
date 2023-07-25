@@ -1,78 +1,45 @@
-﻿@model ShopShoes.Models.EF.Product
+﻿@model ShopShoes.Models.UpdateProductViewModel
 @using ShopShoes
 
 @{
     ViewData["Title"] = "Edit Product";
 }
-<h1>Edit Product</h1>
+<link rel="stylesheet" href="~/css/StyleSheet.css">
+<link rel="stylesheet" href="~/css/Product.css">
 
-<div class="row">
-    <div class="col-md-4">
-        <form method="post" action="Edit" asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Amount" class="control-label"></label>
-                <input asp-for="Amount" class="form-control" />
-                <span asp-validation-for="Amount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DateCreate" class="control-label"></label>
-                <input asp-for="DateCreate" class="form-control" />
-                <span asp-validation-for="DateCreate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+<div class="container">
+    <h1>Edit Product</h1>
+    <form method="post" action="Edit">
+        <div class="form-group">
+            <label for="id">Product Id:</label>
+            <input type="text" id="id" name="Id" asp-for="Id" readonly>
+        </div>
+        <div class="form-group">
+            <label for="name">Product Name:</label>
+            <input type="text" id="name" name="name" asp-for="Name">
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" asp-for="Price">
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" asp-for="Amount">
+        </div>
+        <div class="form-group">
+            <label for="datecreate">Datecreate:</label>
+            <input type="date" id="datecreate" name="datecreate" asp-for="DateCreate">
+        </div>
+        <div class="form-group">
+            <label for="status">Status:</label>
+            <textarea id="text" name="status" rows="4" asp-for="Status"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit">Edit Product</button>
+            <button type="submit"><a asp-controller="Product" asp-action="Index"></a> Cancel</button>
+            <button type="submit" asp-controller="Product" asp-action="Delete">Delete</button>
+
+
+        </div>
+    </form>
 </div>
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-@*<form method="post" action="Edit" class="mt-5">
-    <div class="mb-3">
-        <label for="" class="form-label">Id</label>
-        <input type="text" class="form-control" asp-for="Id" readonly>
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Name</label>
-        <input type="text" class="form-control" asp-for="Name">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Price</label>
-        <input type="text" class="form-control" asp-for="Price">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Amount</label>
-        <input type="text" class="form-control" asp-for="Amount">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">DateCreate</label>
-        <input type="text" class="form-control" asp-for="DateCreate">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Status</label>
-        <input type="text" class="form-control" asp-for="Status">
-    </div>
-</form>*@

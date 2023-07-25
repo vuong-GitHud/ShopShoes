@@ -1,86 +1,14 @@
 ﻿@model IEnumerable<ShopShoes.Models.EF.Product>
+
 @{
     ViewData["Title"] = "Product";
 }
-@*
-<table>
-    <thead>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Amount</th>
-    <th>DateCreate</th>
-    <th>Status</th>
-    </thead>
-    <tbody>
-        @foreach (var product in Model)
-        {
-            <tr>
-                <td> @product.Id</td>
-                <td> @product.Name</td>
-
-                <td> @product.Price</td>
-
-                <td> @product.Amount</td>
-
-                <td> @product.DateCreate.ToString("dd-MM-yyyy")</td>
-                <td> @product.Status</td>
-                <td> <a asp-action="Edit" asp-route-id="@product.Id">Edit</a>
-
-            </td>
-            </tr>
-        }
-    </tbody>
-</table>*@
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="~/css/StyleSheet.css">
-    <style>
+    <link rel="stylesheet" href="~/css/ProductIndex.css">
 
-        .container {
-            display: table;
-            margin: 0 auto;
-            width: 100%;
-            margin-top: 200px;
-        }
-
-        .product {
-            margin-top: 50px;
-            margin-left: 50px;
-        }
-
-        .field {
-            margin-bottom: 10px;
-            width: 500px;
-        }
-
-        label {
-            display: inline-block;
-            width: 120px;
-            font-weight: bold;
-        }
-
-        span {
-            display: inline-block;
-            width: auto;
-        }
-
-        .field button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 10vh;
-            margin-top: 50px;
-        }
-
-        .field button {
-            background-color: #45a049;
-        }
-    </style>
 </head>
 <body>
 
@@ -117,14 +45,8 @@
                 </div>
                 <div class="field">
                     <label for="Detail"></label>
-                    <button  type="submit">
-                        <a hef="Product/Detail/@product.Id">Detail</a>
+                    <button type="submit"><a asp-action="Edit" asp-route-id="@product.Id">Edit</a></button>
 
-                    </button>
-                    <button type="submit">
-                        <a asp-action="Edit" asp-route-id="@product.Id">Edit</a>
-
-                    </button>
                 </div>
             </div>
         }
