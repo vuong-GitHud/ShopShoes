@@ -10,8 +10,8 @@ namespace ShopShoes.Models.EF
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
-        public int Amount { get; set; }
+        public decimal Price { get; set; }
+        public decimal Amount { get; set; }
         public DateTime DateCreate { get; set; }
         public string Status { get; set; }
     }

@@ -3,7 +3,7 @@ using ShopShoes.Areas.Identity.Data;
 using ShopShoes.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-//var connectionString = builder.Configuration.GetConnectionString("ShopShoesContextConnection") ?? throw new InvalidOperationException("Connection string 'ShopShoesContextConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("ShopShoesContextConnection") ?? throw new InvalidOperationException("Connection string 'ShopShoesContextConnection' not found.");
 
 builder.Services.AddDbContext<ShopShoesContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ShopShoesContextConnection")));

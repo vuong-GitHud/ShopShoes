@@ -1,32 +1,33 @@
-﻿@model List<ShopShoes.Models.EF.Product>
+﻿@model IEnumerable<ShopShoes.Models.EF.Product>
 @{
+    ViewData["Title"] = "Product";
 }
-
-@*<link rel="stylesheet" href="~/css/StyleSheet.css">
-*@
-@*<h1>Product</h1>
-<table class="table">
+@*
+<table>
     <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Amount</th>
-            <th>DateCreate</th>
-            <th>Status</th>
-        </tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Amount</th>
+    <th>DateCreate</th>
+    <th>Status</th>
     </thead>
     <tbody>
         @foreach (var product in Model)
         {
             <tr>
-                <td>@product.Id</td>
-                <td>@product.Name</td>
-                <td>@product.Price</td>
-                <td>@product.Amount</td>
-                <td>@product.DateCreate.ToString("dd-MM-yyyy")</td>
-                <td>@product.Status</td>
-                <td> <a hef="Product/Detail/@product.Id">Detail</a></td>
+                <td> @product.Id</td>
+                <td> @product.Name</td>
+
+                <td> @product.Price</td>
+
+                <td> @product.Amount</td>
+
+                <td> @product.DateCreate.ToString("dd-MM-yyyy")</td>
+                <td> @product.Status</td>
+                <td> <a asp-action="Edit" asp-route-id="@product.Id">Edit</a>
+
+            </td>
             </tr>
         }
     </tbody>
@@ -34,12 +35,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Product Details</title>
     <link rel="stylesheet" href="~/css/StyleSheet.css">
     <style>
-      
+
         .container {
-            display:table;
+            display: table;
             margin: 0 auto;
             width: 100%;
             margin-top: 200px;
@@ -66,12 +66,26 @@
             width: auto;
         }
 
+        .field button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 10vh;
+            margin-top: 50px;
+        }
+
+        .field button {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Product Details</h1>
+        <h1>Product Show</h1>
         @foreach (var product in Model)
         {
 
@@ -99,6 +113,18 @@
                 <div class="field">
                     <label for="Status">Status:</label>
                     <span id="productStatus">@product.Status</span>
+
+                </div>
+                <div class="field">
+                    <label for="Detail"></label>
+                    <button  type="submit">
+                        <a hef="Product/Detail/@product.Id">Detail</a>
+
+                    </button>
+                    <button type="submit">
+                        <a asp-action="Edit" asp-route-id="@product.Id">Edit</a>
+
+                    </button>
                 </div>
             </div>
         }

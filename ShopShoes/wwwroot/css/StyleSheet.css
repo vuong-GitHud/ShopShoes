@@ -230,17 +230,16 @@ nav.open ~ .overlay {
     }
 
 .content .div-img img {
-    width: 300px;
-    margin-left: 100px;
+    width: 100%;
+    margin-left: 400px;
 }
-
 .content .small-img {
-    padding: 70%;
-    padding-left: 0;
+    padding: 60%;
+    padding-left: 1%;
     padding-bottom: 20%;
     display: flex;
-    gap: 30px;
-    margin-top: 25vh;
+    gap: 10px;
+    margin-top: 20vh;
 }
 
     .content .small-img img {
@@ -354,7 +353,7 @@ ul {
     align-items: center;
     justify-content: center;
     max-width: 100%;
-    min-height: 100vh;
+    min-height: 80vh;
     position: inherit;
 }
 
@@ -475,12 +474,12 @@ ul {
     background-color: #4CAF50; /* Green */
     border: none;
     color: #010512;
-    padding: 5px 10px;
+    padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
     margin: 10px 2px;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 8px;
 }

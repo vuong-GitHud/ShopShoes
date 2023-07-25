@@ -1,10 +1,13 @@
 ﻿@using ShopShoes
 @model ShopShoes.Models.EF.Product
+@{
+    ViewData["Title"] = "Add New Product";
+}
+
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Product</title>
     <link rel="stylesheet" href="~/css/StyleSheet.css">
     <link rel="stylesheet" href="~/css/Product.css">
 
@@ -19,15 +22,15 @@
             </div>
             <div class="form-group">
                 <label for="price">Price:</label>
-                <input type="text" id="price" name="price" step="0.01" required>
+                <input type="text" id="price" name="price" required>
             </div>
             <div class="form-group">
                 <label for="amount">Amount:</label>
-                <input type="number" id="price" name="price" step="0.01" required>
+                <input type="number" id="amount" name="amount" required>
             </div>
             <div class="form-group">
                 <label for="datecreate">Datecreate:</label>
-                <input type="date" id="price" name="price" step="0.01" required>
+                <input type="date" id="datecreate" name="datecreate" required>
             </div>
             <div class="form-group">
                 <label for="status">Status:</label>
