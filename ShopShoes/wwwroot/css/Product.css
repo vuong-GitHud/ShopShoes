@@ -41,3 +41,7 @@ h1 {
         border-radius: 5px;
         cursor: pointer;
     }
+        .form-group button a {
+            color: #fff;
+            text-decoration: none
+        }

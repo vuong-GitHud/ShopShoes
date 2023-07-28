@@ -33,10 +33,14 @@ span {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    width: 10vh;
+    width: 20vh;
     margin-top: 50px;
 }
 
 .field button {
     background-color: #45a049;
+}
+.field a {
+    color: white;
+    text-decoration: none
 }
