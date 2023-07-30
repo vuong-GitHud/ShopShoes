@@ -17,7 +17,7 @@ namespace ShopShoes.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.15")
+                .HasAnnotation("ProductVersion", "6.0.16")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -292,6 +292,10 @@ namespace ShopShoes.Migrations
 
                     b.Property<DateTime>("DateCreate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ImageFileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()

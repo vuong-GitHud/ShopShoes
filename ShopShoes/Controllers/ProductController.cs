@@ -8,6 +8,8 @@ using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 using ShopShoes.Areas.Identity.Data;
 using Microsoft.Build.Framework;
 using System.Reflection.Metadata.Ecma335;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace ShopShoes.Controllers
 {
@@ -42,7 +44,7 @@ namespace ShopShoes.Controllers
 
         // Post: Product/Create
         [HttpPost]
-        public async Task<IActionResult> Add(AddProductViewModel addProductViewModel)
+        public async Task<IActionResult> Add(AddProductViewModel addProductViewModel, IFormFile imageFile)
         {
             var product = new Product()
             {
@@ -51,21 +53,35 @@ namespace ShopShoes.Controllers
                 Price = addProductViewModel.Price,
                 Amount = addProductViewModel.Amount,
                 DateCreate = addProductViewModel.DateCreate,
-                Status = addProductViewModel.Status
+                Status = addProductViewModel.Status,
+
 
             };
+            if (imageFile != null && imageFile.Length > 0)
+            {
+                // Save the image file to a folder on the server and set the ImageFileName property
+                string fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
+                string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", fileName);
+                using (var fileStream = new FileStream(imagePath, FileMode.Create))
+                {
+                    await imageFile.CopyToAsync(fileStream);
+                }
+                product.ImageFileName = fileName;
+            }
             await shopShoesContext.Products.AddAsync(product);
             await shopShoesContext.SaveChangesAsync();
             return RedirectToAction("Index");
-            //if (ModelState.IsValid)
-            //{ 
-            //    shopShoesContext.Products.Add(product);
-            //    shopShoesContext.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
-
-            //return View(product);
         }
+        //public IActionResult GetImage(Guid id)
+        //{
+        //    var product = shopShoesContext.Products.Find(id);
+        //    if (product != null)
+        //    {
+        //        var imagePath = product.ImageFileName;
+        //        var imageFileStream = new FileStream("wwwroot" + imagePath, FileMode.Open);
+        //        return File(imageFileStream, "image/jpeg");
+        //    }
+        //    return NotFound();
         //GET: Product/Edit/5
         [HttpGet]
         public async Task<IActionResult> Edit(Guid id)
@@ -80,7 +96,8 @@ namespace ShopShoes.Controllers
                     Price = product.Price,
                     Amount = product.Amount,
                     DateCreate = product.DateCreate,
-                    Status = product.Status
+                    Status = product.Status,
+                    ImageFileName = product.ImageFileName
                 };
                 return await Task.Run(() => View("Edit", viewModel));
 
@@ -100,6 +117,7 @@ namespace ShopShoes.Controllers
                 product.Amount = model.Amount;
                 product.DateCreate = model.DateCreate;
                 product.Status = model.Status;
+                //product.ImageFileName = model.ImageFileName;
 
                 await shopShoesContext.SaveChangesAsync();
 

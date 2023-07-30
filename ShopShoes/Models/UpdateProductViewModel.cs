@@ -8,5 +8,6 @@
         public decimal Amount { get; set; }
         public DateTime DateCreate { get; set; }
         public string Status { get; set; }
+        public string ImageFileName { get; set; }
     }
 }

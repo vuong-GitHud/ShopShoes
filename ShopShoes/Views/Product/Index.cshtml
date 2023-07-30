@@ -40,21 +40,35 @@
                     <span id="productDateCreate">@product.DateCreate.ToString("dd-MM-yyyy")</span>
                 </div>
                 <div class="field">
-                    <label for="Status">Status:</label>
+                    <label for="status">Status:</label>
                     <span id="productStatus">@product.Status</span>
 
                 </div>
+                <div class="field">
+                    <label for="imagefile">Image:</label>
+
+                    @if (!string.IsNullOrEmpty(product.ImageFileName))
+                    {
+                        <img src="~/images/@product.ImageFileName" alt="Product Image" width="200" height="200" />
+                    }
+
+                </div>
+                @*<div class="field">
+            <label for="fontimage">fontimage:</label>
+            <span id="productFontimage">@product.FontImage</span>
+
+            </div>*@
                 <div class="field">
                     <label for="Detail"></label>
                     <button type="submit"><a asp-action="Edit" asp-route-id="@product.Id">Edit</a></button>
                     <button type="submit"><a asp-controller="Product" asp-action="Add">AddProduct</a></button>
 
-                </div>              
+                </div>
             </div>
-            
-        }     
+
+        }
 
     </div>
-    
+
 </body>
 </html>

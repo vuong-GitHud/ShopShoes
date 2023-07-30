@@ -1,5 +1,5 @@
 ﻿@using ShopShoes
-@model ShopShoes.Models.EF.Product
+@model ShopShoes.Models.AddProductViewModel
 @{
     ViewData["Title"] = "Add New Product";
 }
@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <h1>Add Product</h1>
-        <form method="post" action="Add">
+        <form enctype="multipart/form-data" method="post" asp-action="Add">
             <div class="form-group">
                 <label for="name">Product Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -37,14 +37,33 @@
                 <textarea id="status" name="status" rows="4" required></textarea>
             </div>
             <div class="form-group">
+                <label for="imagefile">Product Image</label>
+                <input id="imagefile" name="imagefile" type="file">              
+            </div>
+
+            @*<div class="form-group">
+                <label asp-for="FontImage">FontImage:</label>
+                <div class="custom-file">
+                    <input asp-for="FontImage" class="custom-file-input" id="FLFontImage" onchange="document.getElementById('FontImagePrv').src = window.URL.createObjectURL(this.files[0]">
+                    <label class="custom-file-label" for="FLFontImage"> choose file</label>
+                </div>
+                <span asp-validation-for="FontImage" class="text-danger"></span>
+                <img id="FontImagePrv" src="" alt="Logo Image" width="150" height="150" style="border:1px ; margin-top:20px; margin-left:120px;" />
+            </div>*@
+            <div class="form-group">
                 <button type="submit">Add Product</button>
                 <button type="submit"><a asp-action="Index" class="btn bnt-primary">Cancel</a></button>
                 <button type="submit" asp-controller="Product" asp-action="Delete">Delete</button>
 
             </div>
-           
+
         </form>
 
     </div>
+    @*<script type="text/javascript">
+        $(".custom-file-input").on("change", function(){
+        var fileName =$(this).val().split("\\").pop();
+        $(this).siblings(".customer-file-label").addClass("selected").html(fileName)});
+    </script>*@
 </body>
 </html>
